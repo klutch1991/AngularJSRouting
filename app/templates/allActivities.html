@@ -3,16 +3,16 @@
     <form class="form-inline">
         <div class="form-group">
             <label for="classroomlist">Classroom</label>
-            <select ng-init="activities.selectedClassroom = activities.allClassrooms[0]"
-                    ng-model="activities.selectedClassroom"
-                    ng-options="classroom as classroom.name for classroom in activities.allClassrooms"
+            <select ng-init="vm.selectedClassroom = vm.allClassrooms[0]"
+                    ng-model="vm.selectedClassroom"
+                    ng-options="classroom as classroom.name for classroom in vm.allClassrooms"
                     class="form-control"
                     id="classroomlist"></select>
 
         </div>
         <div class="form-group">
             <label for="monthlist">Month</label>
-            <select ng-model="activities.selectedMonth" class="form-control" id="monthlist">
+            <select ng-model="vm.selectedMonth" class="form-control" id="monthlist">
                 <option value="1">January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
@@ -27,7 +27,7 @@
                 <option value="12">December</option>
             </select>
         </div>
-        <button ng-click="activities.search()" class="btn btn-default">Search</button>
+        <button ng-click="vm.search()" class="btn btn-default">Search</button>
     </form>
 </div>
 
@@ -47,7 +47,7 @@
                     <th>Date</th>
                 </tr>
                 </thead>
-                <tr ng-repeat="activity in activities.allActivities">
+                <tr ng-repeat="activity in vm.allActivities">
                     <td>{{ activity.name }}</td>
                     <td>{{ activity.classroom.name }}</td>
                     <td>{{ activity.date | date:'fullDate' }}</td>
